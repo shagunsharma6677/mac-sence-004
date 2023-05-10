@@ -4,6 +4,7 @@ import Banner from '../../component/Banner/Banner'
 import { Flex } from '@chakra-ui/react'
 import Carousel from '../../component/Carousel/Carousel'
 import Footer from '../../component/Footer/Footer'
+import SideBanner from '../../component/SideBanner/SideBanner'
 
 const bannerList = {
     main: [
@@ -83,6 +84,7 @@ const Home = () => {
             })}
             <Carousel/>
             <Footer/>
+            <SideBanner {...bannerList.main[0]}/>
 
 
         </>

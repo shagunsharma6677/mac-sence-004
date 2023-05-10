@@ -80,7 +80,7 @@ const NAV_ITEMS = [
     },
     {
         label: "Mac",
-        href: "/store?filter=MacBook+Air&filter=MacBook+Pro",
+        href: "/mac",
     },
     {
         label: "iPad",
