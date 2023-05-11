@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../../component/Navbar/Navbar";
-import Footer from "../../component/Footer/Footer"
+import Footer from "../../component/Footer/Footer";
 import Banner from "../../component/Banner/Banner";
 import { Box, Flex, Heading } from "@chakra-ui/react";
 import GridBanner from "../../component/GridBanner/GridBanner";
@@ -14,34 +14,51 @@ import {
     useBreakpointValue,
     Link,
 } from "@chakra-ui/react";
+import CardCarousel from "../../component/CardCarousel/CardCarousel";
+import { macProduct } from "../../db";
 
 const MacPage = () => {
     return (
         <>
             <Navbar />
             <Box marginBottom={"2"} bg={"black"} textAlign="center" py={10} px={6}>
-
-                <Heading maxW={"50%"} m={"auto"} color={"white"} as="h2" size="2xl" mt={12} mb={12}>
+                <Heading
+                    maxW={"50%"}
+                    m={"auto"}
+                    color={"white"}
+                    as="h2"
+                    size="2xl"
+                    mt={12}
+                    mb={12}
+                >
                     Introducing the new MacBook Pro and Mac mini.
                 </Heading>
                 <Flex justifyContent={"center"}>
-                    <Link p={"10px 20px"} fontSize={"21px"} lineHeight={"29.001px"} color={"#2997FF"}
-                    >Learn More {">"}</Link>
+                    <Link
+                        p={"10px 20px"}
+                        fontSize={"21px"}
+                        lineHeight={"29.001px"}
+                        color={"#2997FF"}
+                    >
+                        Learn More {">"}
+                    </Link>
                 </Flex>
-
             </Box>
+
             <Banner {...bannerList.main[0]} />
             <Box maxW={"95%"} m={"auto"}>
                 {bannerList?.side?.map((banner) => (
                     <SideBanner {...banner} />
                 ))}
-
+            </Box>
+            <Box m={"auto"} maxW={"80%"} marginBottom={"16"}>
+                <HeadingComp head="Whats Make a Mac a Mac ?" />
+                <CardCarousel data={macProduct} />
             </Box>
 
             {bannerList?.flex?.map((banner) => {
                 return (
-                    <Flex maxW={"95%"}
-                        m={"auto"} gap={"10px"}>
+                    <Flex maxW={"95%"} m={"auto"} gap={"10px"}>
                         <GridBanner {...banner[0]} />
                         <GridBanner {...banner[1]} />
                     </Flex>
@@ -49,15 +66,13 @@ const MacPage = () => {
             })}
             <Box marginTop={"16"} marginBottom={"16"}>
                 <Statics />
-
             </Box>
 
             <HeadingComp head="Whats Make a Mac a Mac ?" />
 
             {bannerList?.flex2?.map((banner) => {
                 return (
-                    <Flex maxW={"95%"}
-                        m={"auto"} gap={"10px"}>
+                    <Flex maxW={"95%"} m={"auto"} gap={"10px"}>
                         <Banner {...banner[0]} />
                         <Banner {...banner[1]} />
                     </Flex>
@@ -115,7 +130,6 @@ const MacPage = () => {
                         >
                             Learn about apple and education {">"}
                         </Text>
-
                     </Stack>
                 </VStack>
             </Flex>
@@ -171,14 +185,11 @@ const MacPage = () => {
                         >
                             Learn about apple and education {">"}
                         </Text>
-
                     </Stack>
                 </VStack>
             </Flex>
 
             <Footer />
-
-
         </>
     );
 };
@@ -209,7 +220,7 @@ const bannerList = {
             h1: "Apple and Education",
             h3: "Empowering educators and students to move the world forward.",
             bg: false,
-        }
+        },
     ],
 
     side: [

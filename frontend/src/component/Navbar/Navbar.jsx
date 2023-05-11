@@ -110,6 +110,10 @@ const NAV_ITEMS = [
         label: "Accessories",
         href: "/store?filter=Accessorires",
     },
+    {
+        label: "Cart",
+        href: "/cart",
+    },
 
 ];
 
