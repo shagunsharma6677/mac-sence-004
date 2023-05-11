@@ -16,6 +16,7 @@ export default function Banner({image,h1,h3, bg,flex}) {
             backgroundImage={
                 `url(${image})`
             }
+            
             paddingTop={"30px"}
             backgroundColor={"transparent"}
             backgroundSize={"cover"}
