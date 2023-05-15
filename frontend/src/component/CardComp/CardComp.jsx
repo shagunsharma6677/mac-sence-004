@@ -9,16 +9,17 @@ import {
   useColorModeValue,
   HStack,
 } from '@chakra-ui/react';
-import { BsArrowUpRight, BsHeartFill, BsHeart } from 'react-icons/bs';
+import { BsArrowUpRight,BsCart, BsCartFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
-export default function CardComp({ id, image, title, price }) {
+export default function CardComp({ id, image,des, title, price }) {
   const [liked, setLiked] = useState(false);
 
   return (
     <Center py={6}>
       <Box
-        w="xs"
+        w="300px"
+        
         rounded={'sm'}
         my={5}
         mx={[0, 5]}
@@ -55,7 +56,7 @@ export default function CardComp({ id, image, title, price }) {
            ${price}
           </Heading>
           <Text color={'gray.500'} noOfLines={2}>
-           Lorem ipsum dolor sit amet consectetur adipisicing elit. In, quae. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+           {des}
           </Text>
         </Box>
         <HStack borderTop={'1px'} color="black">
@@ -80,9 +81,9 @@ export default function CardComp({ id, image, title, price }) {
             cursor="pointer"
             onClick={() => setLiked(!liked)}>
             {liked ? (
-              <BsHeartFill fill="red" fontSize={'24px'} />
+              <BsCartFill fill="green" fontSize={'24px'} />
             ) : (
-              <BsHeart fontSize={'24px'} />
+              <BsCart fontSize={'24px'} />
             )}
           </Flex>
         </HStack>

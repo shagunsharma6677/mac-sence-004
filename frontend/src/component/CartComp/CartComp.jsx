@@ -4,9 +4,9 @@ import { Box, Button, Flex, Grid, Image, Text } from "@chakra-ui/react";
 const CartComp = () => {
     return (
         <div>
-            <Box w="80%" m={"auto"}>
+            <Box minW={"600px"} w="100%" m={"auto"}>
                 <Flex
-                    direction={{ base: "column", md: "row", lg: "row" }}
+                    direction={{ base: "column", md: "row", sm: "row" }}
                     mb={4}
                     borderBottom="1px solid gray"
                     p={4}
@@ -14,7 +14,7 @@ const CartComp = () => {
                 >
                     {/* Ist box */}
 
-                    <Box w={{ base: "100%", md: "20%", lg: "20%" }} py={8}>
+                    <Box w={{ base: "100%", md: "90%", sm: "80%" }} py={8}>
                         <Image
                             p={2}
                             height="140px"
