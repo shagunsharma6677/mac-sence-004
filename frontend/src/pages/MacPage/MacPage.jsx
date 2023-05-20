@@ -19,6 +19,7 @@ import { iphoneAccessories, macProduct } from "../../db";
 import CardComp from "../../component/CardComp/CardComp";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import FilterSortDrawer from "../../component/Drawer/Drawer";
 
 const MacPage = () => {
   AOS.init();
@@ -58,7 +59,7 @@ const MacPage = () => {
       />
       <Box marginBottom={"10px"}>
         <Flex
-          w={"97vw"}
+          w={"full"}
           h={"100vh"}
           m={"auto"}
           backgroundImage={
@@ -120,7 +121,12 @@ const MacPage = () => {
         maxW={"80%"}
         marginBottom={"16"}
       >
-        <Heading>Whats Make a Mac a Mac ?</Heading>
+        <HeadingComp
+          data-aos="fade-up"
+          data-aos-duration="1500"
+          head="Whats Make a Mac a Mac ?"
+        />
+        {/* <Heading m={"auto"}>Whats Make a Mac a Mac ?</Heading> */}
         <CardCarousel data={macProduct} />
       </Box>
 
@@ -140,6 +146,37 @@ const MacPage = () => {
           </Flex>
         );
       })}
+
+      <Box m={"auto"} maxW={"84%"}>
+        <HeadingComp
+          data-aos="fade-up"
+          data-aos-duration="1500"
+          head="iPad Essentials & Accessories."
+        />
+        <Box>
+          <FilterSortDrawer />
+        </Box>
+
+        <Grid
+          templateColumns={`repeat(${useBreakpointValue({
+            base: 1,
+            lg: 3,
+            md: 3,
+          })}, 1fr)`}
+          overflow={"hidden"}
+          gap={2}
+          bg="#f5f5f7"
+        >
+          {iphoneAccessories.map((item) => {
+            return (
+              <GridItem w="90%" margin={"auto"} h="100%">
+                <CardComp {...item} />
+              </GridItem>
+            );
+          })}
+        </Grid>
+      </Box>
+
       <Box
         data-aos="fade-up"
         data-aos-duration="1500"
@@ -149,24 +186,6 @@ const MacPage = () => {
         <Statics />
       </Box>
 
-      <HeadingComp head="Whats Make a Mac a Mac ?" />
-
-      {bannerList?.flex2?.map((banner) => {
-        return (
-          <Flex maxW={"95%"} m={"auto"} gap={"10px"}>
-            <Banner
-              data-aos="fade-up"
-              data-aos-duration="1500"
-              {...banner[0]}
-            />
-            <Banner
-              data-aos="fade-up"
-              data-aos-duration="1500"
-              {...banner[1]}
-            />
-          </Flex>
-        );
-      })}
       <Flex
         w={"full"}
         h={"90vh"}
@@ -281,32 +300,6 @@ const MacPage = () => {
           </Stack>
         </VStack>
       </Flex>
-
-      <Box m={"auto"} maxW={"84%"}>
-        <HeadingComp
-          data-aos="fade-up"
-          data-aos-duration="1500"
-          head="iPad essentials & accessories."
-        />
-
-        <Grid
-          templateColumns={`repeat(${useBreakpointValue({
-            base: 1,
-            lg: 3,
-            md: 3,
-          })}, 1fr)`}
-          overflow={"hidden"}
-          gap={2}
-        >
-          {iphoneAccessories.map((item) => {
-            return (
-              <GridItem w="90%" margin={"auto"} h="100%">
-                <CardComp {...item} />
-              </GridItem>
-            );
-          })}
-        </Grid>
-      </Box>
 
       <Footer />
     </>
