@@ -20,9 +20,14 @@ import CardComp from "../../component/CardComp/CardComp";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import FilterSortDrawer from "../../component/Drawer/Drawer";
+import { useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const MacPage = () => {
+ 
   AOS.init();
+
+  
   return (
     <>
       <Navbar />

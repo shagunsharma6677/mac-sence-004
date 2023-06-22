@@ -18,13 +18,26 @@ import {
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Checkbox, CheckboxGroup } from "@chakra-ui/react";
+import { useSearchParams } from "react-router-dom";
 
 export default function FilterSortDrawer() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialFilterValues = searchParams.getAll("filter");
+  const [filterValue, setFilterValue] = React.useState(initialFilterValues);
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
-  const handleFilterChange = (value) => {};
+  const handleFilterChange = (value) => {
+    setFilterValue(value);
+  };
 
   const handleSortChange = (val) => {};
+
+  useEffect(() => {
+    const params = {};
+    if (filterValue.length) params.filter = filterValue;
+    setSearchParams(params);
+  }, [filterValue, setSearchParams]);
 
   return (
     <>
@@ -62,7 +75,7 @@ export default function FilterSortDrawer() {
           <DrawerBody>
             <CheckboxGroup
               colorScheme="green"
-              value={""}
+              value={filterValue}
               onChange={handleFilterChange}
             >
               <Heading>Filter </Heading>
